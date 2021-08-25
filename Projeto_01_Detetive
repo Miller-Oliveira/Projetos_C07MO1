@@ -1,0 +1,51 @@
+let soma = 0;
+console.log("Seja bem vindo ao jogo do Sherlock Holmes");
+console.log();
+console.log("Após um terrivel asassinato na pacata cidade de pacatville, a policia convidou o famoso consultor Sherlock Holmes para ajudar na resolução do caso, o mesmo bate na sua porta para fazer algumas perguntas, você não tem opção senão responde-las... ");
+console.log();
+console.log("Responda com 'S' ou 'N' as perguntas caso contrário poderá irritar o Sr Holmes!");
+console.log();
+let pergunta1 = prompt("Você telefonou para a vítima? ");
+if(pergunta1 === 's'){
+soma = ++soma;
+}else if(pergunta1 === "n"){
+       soma = soma;      
+ }
+let pergunta2 = prompt("Você esteve no local do crime? ");
+  if(pergunta2 === 's'){
+      soma = ++soma;
+ }else if(pergunta2 === "n"){
+       soma = soma;
+}
+
+let pergunta3 = prompt("Você mora perto da vítima? ");
+  if(pergunta3 === 's'){
+      soma = ++soma;
+ }else if(pergunta3 === "n"){
+       soma = soma;
+}
+let pergunta4 = prompt("Você devia para a vítima? ");
+if(pergunta4 === 's'){
+soma = ++soma;
+ }else if(pergunta4 === "n"){
+ soma = soma;
+}
+
+let pergunta5 = prompt("Você Já trabalhou com a vítima? ");
+if(pergunta5 === 's'){
+soma = ++soma;
+}else if(pergunta5 === "n"){
+soma = soma;
+}
+console.log();
+// console.log(soma);
+if(soma == 2){
+  console.log("Você é um suspeito (a), não saia de casa até o término das investigações");
+}else if(soma == 3 || soma == 4){
+  console.log("A investigação determinou que você é um(a) dos cumplices, você está preso(a)!");
+}else if(soma == 5){
+  console.log("Você é o asassino(a)!!! eu já desconfiava! policiais, podem levalo (a)!");
+}
+else{
+  console.log("Deu sorte, inocente até que se prove o contrário");
+}
