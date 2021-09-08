@@ -1,0 +1,29 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
+console.log("Seja bem vindo ao jogo dos dados, espero que se divirta!")
+var rodadas = +prompt("Quantas rodadas deseja jogar? ");
+
+//Lista para guardar os objetos
+var lista = [];
+//Verificar quantas pessoas vão jogar e quantas rodadas serão jogadas.
+var Players = +prompt("Quantos jogadores irão participar? ");
+for (let i = 0; i < rodadas; i++){
+console.log("O numero de rodadas é " + rodadas)
+  for (let i = 0; i < Players; i++) {
+  //Objeto com a jogada de cada um.
+      let jogada = {};
+        jogada.nome = prompt("Digite o nome do jogador ");
+          jogada.numero = Math.floor(Math.random() * 6 + 1);
+            lista.push(jogada);
+}
+
+console.log();
+//Ordenar os objetos, sabendo que o vencedor tirou o maior número no dado (5)
+lista.sort((a, b) => b.numero - a.numero);
+
+console.log(lista);
+
+//resultado
+console.log("O maior valor é " + lista[0].numero + " de " + lista[0].nome);
+}
+console.log("Por isso o vencedor é " + lista[0].nome);
