@@ -1,0 +1,161 @@
+const prompt = require("prompt-sync")({ sigint: true });
+console.log("Bem vindos a nossa primeira eleição para o MasterBluemer!")
+console.log();
+console.log("Para que nossa eleição ocorra de forma tranquila, foram criadas algumas regras:")
+console.log();
+console.log("Não poderam votar aqueles menores de 16 anos de idade.");
+console.log();
+console.log("Voto Opcional: Menores de 16 anos.");
+console.log();
+console.log("Voto obrigatório: Maiores de 18 anos.");
+console.log();
+console.log("Você terá a opção de escolher 1 entre os 3 nomes, também poderá votar Nulo ou em Branco.")
+var candidatos = {
+  nome1: "Candidato 1: Jorge",
+  nome2: "Candidato 2: João ",
+  nome3: "Candidato 3: José ",
+  nome4: "Voto Nulo",
+  nome5: "Voto Em Branco",
+};
+
+var candidato1 = 0;
+var candidato2 = 0;
+var candidato3 = 0;
+var escolhaNulo = 0;
+var escolhaBranco = 0;
+var n = 0;
+var valido = true;
+
+while (valido) {
+  var Nascimento = +prompt("Para iniciar digite o seu ano de nascimento. ");
+//Bloco de código para definir se o usuário está apto para votar ou não.
+  function autorizaVoto(anoNascimento) {
+    let Nascimento = anoNascimento;
+    const anoAtual = 2021;
+    let idade = anoAtual - Nascimento;
+    console.log("Sua idade é " + idade);
+    if (idade < 16) {
+      return "Você ainda não tem idade suficiente para votar.";
+    } else if (idade == 16 || idade == 17) {
+      return "Você já pode escolher votar, vamos seguir!";
+    } else if (idade > 18) {
+      return "Para você o voto é obrigatório, vamos lá!";
+    }
+  }
+  
+  var autorizado = autorizaVoto(Nascimento);
+  console.log(autorizado);
+  var escolhaCandidato = +prompt(
+    "Escolha um número entre 1 e 5:  (1) Candidato 1: Jorge  (2) Candidato 2: João   (3) Candidato 3: José   (4) para Voto Nulo  (5) para Voto em Branco "
+  );
+  
+  function votacao(autorizacao,voto) {
+    console.log("Autorização " + autorizacao);
+    let autoriza = autorizacao;
+    if (autoriza === "Negado") {
+      console.log("Voce não pode votar");
+    } else if ((autoriza = "Opcional")) {
+      console.log("Votação Opcional ");
+    } else if ((autoriza = "Obrigatorio")) {
+      console.log("Votação Obrigatoria ");
+    }
+    //Caso autorizado, esse bloco de código irá solicitar o voto do usuário.
+    let votos = voto;
+    if (votos == 1) {
+        candidato1 = +1;
+      if (autoriza == "Negado") {
+        candidato1 = 0;
+      }
+      console.log("Voce escolheu o " + candidatos.nome1);
+      console.log(candidato1);
+    } else if (votos == 2) {
+        candidato2 = +1;
+      if (autoriza == "Negado") {
+        candidato2 = 0;
+      }
+      console.log("Voce escolheu o " + candidatos.nome2);
+      console.log(candidato2);
+    } else if (votos == 3) {
+        candidato3 = +1;
+      if (autoriza == "Negado") {
+        candidato3 = 0;
+      }
+      console.log("Voce escolheu o " + candidatos.nome3);
+      console.log(candidato3);
+    } else if (votos == 4) {
+      escolhaNulo = +1;
+      if (autoriza == "Negado") {
+        escolhaNulo = 0;
+      }
+      console.log("Voce escolheu o " + candidatos.nome4);
+      console.log(escolhaNulo);
+    } else if (votos == 5) {
+      escolhaBranco = +1;
+      if (autoriza == "Negado") {
+        escolhaBranco = 0;
+      }
+      console.log("Voce escolheu o " + candidatos.nome5);
+      console.log(escolhaBranco);
+    } else {
+      console.log("Digito invalido ");
+    }
+  }
+  votacao(autorizado, escolhaCandidato);
+  //Abaixo o código para entregar o resultado.
+  function exibirResultado() {
+    //- O total de votos para cada candidato
+    let qtCand1 = candidato1;
+    let qtCand2 = candidato2;
+    let qtCand3 = candidato3;
+    console.log("Total de votos para o candidato 1:  " + qtCand1);
+    console.log("Total de votos para o candidato 2:  " + qtCand2);
+    console.log("Total de votos para o candidato 3:  " + qtCand3);
+    //- O total de votos nulos
+    let qtNulo = escolhaNulo;
+    console.log("O total de votos nulos:  " + qtNulo);
+    //- O total de votos em branco
+    let qtBranco = escolhaBranco;
+    console.log("O total de votos em branco:  " + qtBranco);
+    //- Qual candidato venceu a votação
+    if (candidato1 > candidato2 || candidato3) {
+      console.log(`O canditado 1 é o Vencedor`);
+    } else if (candidato2 > candidato1 || candidato3) {
+      console.log(`O canditado 2 é o Vencedor`);
+    } else if (candidato3 > candidato1 || candidato2) {
+      console.log(`O canditado 3 é o Vencedor`);
+    } else if (candidato1 == candidato2) {
+      console.log(`Segundo turno `);
+    } else if (candidato1 == candidato3) {
+      console.log(`Segundo turno `);
+    } else if (candidato2 == candidato1) {
+      console.log(`Segundo turno `);
+    } else if (candidato2 == candidato3) {
+      console.log(`Segundo turno `);
+    } else if (candidato3 == candidato1) {
+      console.log(`Segundo turno `);
+    } else if (candidato3 == candidato2) {
+      console.log(`Segundo turno `);
+    }
+  }
+  exibirResultado();
+
+  var n = prompt("Deseja continuar votando?! ");
+
+  if (n == "s") {
+    valido = true;
+    autorizado = autorizaVoto(Nascimento);
+    votacao(autorizado, escolhaCandidato);
+    exibirResultado();
+  } else if (n != "s") {
+    n = false;
+  }
+  let re = prompt("Quer Realmente sair ");
+  if (re == "s") {
+    valido = false;
+    autorizado = autorizaVoto(Nascimento);
+    votacao(autorizado, escolhaCandidato);
+    exibirResultado();
+  } else {
+    valido = true;
+  }
+}
