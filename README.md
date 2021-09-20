@@ -12,5 +12,5 @@ Projeto 2 - JoKenPo  | [Git ](https://github.com/Miller-Oliveira/Projetos_C07MO1
 
 Projeto 3 - Jogo de Dados | [Git ](https://github.com/Miller-Oliveira/Projetos_C07MO1/blob/ebc7df20840e1a5e58ef53b59a28ea20da4655ce/Projeto_03_JogoDeDados)|8,0|
 
-Projeto 4 - Eleição | [Git ](https://github.com/Miller-Oliveira/Projetos_C07MO1/blob/ebc7df20840e1a5e58ef53b59a28ea20da4655ce/Projeto_03_JogoDeDados)|7,5|
+Projeto 4 - Eleição | [Git ](https://github.com/Miller-Oliveira/Projetos_C07MO1/blob/63dae860c899b9d66dfaf8106c4dc46279e8637b/Projeto_04_Elei%C3%A7%C3%A3o)|7,5|
 
